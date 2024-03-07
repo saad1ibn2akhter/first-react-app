@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Todo from './Todo'
 
 function Device(props){
   console.log(props);
@@ -14,7 +15,10 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
+    <Todo task="learn react basics" isDone={true}></Todo>
+    <Todo task="exploring react basics" isDone={false}></Todo>
+    <Todo task="implement react" isDone={true}></Todo>
+      {/* <h1>Vite + React</h1>
       <Device name="laptop" price="55000"></Device>
       <Device name="mobile" price="32000"></Device>
       <Device name="watch" price="4000"></Device>
@@ -23,7 +27,7 @@ function App() {
       <Student grade="7" score="90"></Student>
       <Student grade="12" score="100"></Student>
       <Student grade="12" score="98"></Student>
-      <Developer></Developer>
+      <Developer></Developer> */}
     </>
   )
 }
@@ -44,7 +48,8 @@ function Person(){
 
 const {grade , score} = {grade:'7' , score:'100'};
 
-function Student(props){
+function Student({grade = 1,score = 0}){
+  console.log(grade,score);
   const Name = "Zawad";
   const Age = 23;
   return (
@@ -52,6 +57,8 @@ function Student(props){
       <h2>This is a student </h2>
       <h2>Name :{Name}</h2>
       <h2>Age: {Age}</h2>
+      <h2>Class: {grade}</h2>
+      <h2>Score:{score}</h2>
     </div>
   )
 }
